@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: schools
+      - name: users
+      - name: products
+      - name: referrals
+      - name: purchases
+      - name: events

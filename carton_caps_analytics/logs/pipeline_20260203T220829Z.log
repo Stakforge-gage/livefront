@@ -1,0 +1,213 @@
+Pipeline run_id=20260203T220829Z
+Using PYTHON=C:\repos\livefront\.venv\Scripts\python.exe
+
+$ C:\repos\livefront\.venv\Scripts\python.exe generator/data_generator.py
+C:\repos\livefront\carton_caps_analytics\generator\data_generator.py:775: DeprecationWarning: The default datetime adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+  conn.execute(insert_sql, values)
+Generating Carton Caps data...
+----------------------------------------
+Generating 50 schools...
+Saved 50 records to ./data\schools.csv
+Generating 1000 users...
+Saved 1000 records to ./data\users.csv
+Generating 100 products...
+Saved 100 records to ./data\products.csv
+Generating 1000 referrals (may add new users)...
+Saved 1000 records to ./data\referrals.csv
+Generating 10000 purchases...
+Saved 10151 records to ./data\purchases.csv
+Generating events (product + referral lifecycle)...
+Saved 27398 records to ./data\events.csv
+
+Saving to SQLite database...
+Saved all data to ./data\carton_caps_generated.db
+----------------------------------------
+Data generation complete!
+
+Artifacts written to ./data/
+ - schools.csv, users.csv, products.csv, referrals.csv, purchases.csv, events.csv
+ - carton_caps_generated.db
+
+$ C:\repos\livefront\.venv\Scripts\python.exe duckdb/load_raw.py 20260203T220829Z
+Using Python interpreter: C:\repos\livefront\.venv\Scripts\python.exe
+Writing DuckDB to: C:\repos\livefront\carton_caps_analytics\duckdb\carton_caps_20260203T220829Z.duckdb
+events     27398
+products   100
+purchases  10151
+referrals  1000
+schools    50
+users      1000
+
+$ dbt build --profiles-dir dbt_carton_caps --project-dir dbt_carton_caps
+[0m22:08:31  Running with dbt=1.11.2
+[0m22:08:31  Registered adapter: duckdb=1.10.0
+[0m22:08:32  Found 12 models, 30 data tests, 6 sources, 2 exposures, 472 macros
+[0m22:08:32  
+[0m22:08:32  Concurrency: 4 threads (target='dev')
+[0m22:08:32  
+[0m22:08:32  1 of 44 START sql view model main.stg_events ................................... [RUN]
+[0m22:08:32  2 of 44 START sql view model main.stg_products ................................. [RUN]
+[0m22:08:32  3 of 44 START sql view model main.stg_purchases ................................ [RUN]
+[0m22:08:32  4 of 44 START sql view model main.stg_referrals ................................ [RUN]
+[0m22:08:32  1 of 44 OK created sql view model main.stg_events .............................. [[32mOK[0m in 0.13s]
+[0m22:08:32  3 of 44 OK created sql view model main.stg_purchases ........................... [[32mOK[0m in 0.13s]
+[0m22:08:32  2 of 44 OK created sql view model main.stg_products ............................ [[32mOK[0m in 0.13s]
+[0m22:08:32  5 of 44 START sql view model main.stg_schools .................................. [RUN]
+[0m22:08:32  6 of 44 START sql view model main.stg_users .................................... [RUN]
+[0m22:08:32  4 of 44 OK created sql view model main.stg_referrals ........................... [[32mOK[0m in 0.13s]
+[0m22:08:32  7 of 44 START test not_null_stg_events_event_id ................................ [RUN]
+[0m22:08:32  8 of 44 START test not_null_stg_events_user_id ................................. [RUN]
+[0m22:08:32  7 of 44 PASS not_null_stg_events_event_id ...................................... [[32mPASS[0m in 0.06s]
+[0m22:08:32  8 of 44 PASS not_null_stg_events_user_id ....................................... [[32mPASS[0m in 0.06s]
+[0m22:08:32  9 of 44 START test test_events_in_window ....................................... [RUN]
+[0m22:08:32  10 of 44 START test unique_stg_events_event_id ................................. [RUN]
+[0m22:08:32  6 of 44 OK created sql view model main.stg_users ............................... [[32mOK[0m in 0.08s]
+[0m22:08:32  5 of 44 OK created sql view model main.stg_schools ............................. [[32mOK[0m in 0.08s]
+[0m22:08:32  11 of 44 START test not_null_stg_purchases_product_id .......................... [RUN]
+[0m22:08:32  12 of 44 START test not_null_stg_purchases_purchase_id ......................... [RUN]
+[0m22:08:32  10 of 44 PASS unique_stg_events_event_id ....................................... [[32mPASS[0m in 0.04s]
+[0m22:08:32  9 of 44 PASS test_events_in_window ............................................. [[32mPASS[0m in 0.04s]
+[0m22:08:32  13 of 44 START test not_null_stg_purchases_user_id ............................. [RUN]
+[0m22:08:32  14 of 44 START test unique_stg_purchases_purchase_id ........................... [RUN]
+[0m22:08:32  11 of 44 PASS not_null_stg_purchases_product_id ................................ [[32mPASS[0m in 0.03s]
+[0m22:08:32  12 of 44 PASS not_null_stg_purchases_purchase_id ............................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  15 of 44 START test not_null_stg_products_product_id ........................... [RUN]
+[0m22:08:32  16 of 44 START test unique_stg_products_product_id ............................. [RUN]
+[0m22:08:32  13 of 44 PASS not_null_stg_purchases_user_id ................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  17 of 44 START test not_null_stg_referrals_referral_id ......................... [RUN]
+[0m22:08:32  14 of 44 PASS unique_stg_purchases_purchase_id ................................. [[32mPASS[0m in 0.03s]
+[0m22:08:32  18 of 44 START test not_null_stg_referrals_referrer_user_id .................... [RUN]
+[0m22:08:32  15 of 44 PASS not_null_stg_products_product_id ................................. [[32mPASS[0m in 0.04s]
+[0m22:08:32  16 of 44 PASS unique_stg_products_product_id ................................... [[32mPASS[0m in 0.02s]
+[0m22:08:32  19 of 44 START test unique_stg_referrals_referral_id ........................... [RUN]
+[0m22:08:32  20 of 44 START test not_null_stg_users_school_id ............................... [RUN]
+[0m22:08:32  17 of 44 PASS not_null_stg_referrals_referral_id ............................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  21 of 44 START test not_null_stg_users_user_id ................................. [RUN]
+[0m22:08:32  18 of 44 PASS not_null_stg_referrals_referrer_user_id .......................... [[32mPASS[0m in 0.04s]
+[0m22:08:32  22 of 44 START test unique_stg_users_user_id ................................... [RUN]
+[0m22:08:32  19 of 44 PASS unique_stg_referrals_referral_id ................................. [[32mPASS[0m in 0.05s]
+[0m22:08:32  20 of 44 PASS not_null_stg_users_school_id ..................................... [[32mPASS[0m in 0.05s]
+[0m22:08:32  23 of 44 START test not_null_stg_schools_school_id ............................. [RUN]
+[0m22:08:32  24 of 44 START test unique_stg_schools_school_id ............................... [RUN]
+[0m22:08:32  21 of 44 PASS not_null_stg_users_user_id ....................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  25 of 44 START sql table model main.fct_rewards ................................ [RUN]
+[0m22:08:32  22 of 44 PASS unique_stg_users_user_id ......................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  26 of 44 START sql table model main.dim_product ................................ [RUN]
+[0m22:08:32  23 of 44 PASS not_null_stg_schools_school_id ................................... [[32mPASS[0m in 0.04s]
+[0m22:08:32  24 of 44 PASS unique_stg_schools_school_id ..................................... [[32mPASS[0m in 0.04s]
+[0m22:08:32  27 of 44 START sql table model main.fct_referral ............................... [RUN]
+[0m22:08:32  28 of 44 START sql table model main.fct_purchase ............................... [RUN]
+[0m22:08:32  25 of 44 OK created sql table model main.fct_rewards ........................... [[32mOK[0m in 0.09s]
+[0m22:08:32  26 of 44 OK created sql table model main.dim_product ........................... [[32mOK[0m in 0.09s]
+[0m22:08:32  29 of 44 START sql table model main.dim_school ................................. [RUN]
+[0m22:08:32  30 of 44 START sql table model main.dim_user ................................... [RUN]
+[0m22:08:32  27 of 44 OK created sql table model main.fct_referral .......................... [[32mOK[0m in 0.09s]
+[0m22:08:32  28 of 44 OK created sql table model main.fct_purchase .......................... [[32mOK[0m in 0.10s]
+[0m22:08:32  31 of 44 START test not_null_fct_rewards_reward_id ............................. [RUN]
+[0m22:08:32  32 of 44 START test unique_fct_rewards_reward_id ............................... [RUN]
+[0m22:08:32  31 of 44 PASS not_null_fct_rewards_reward_id ................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  32 of 44 PASS unique_fct_rewards_reward_id ..................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  33 of 44 START test not_null_dim_product_product_id ............................ [RUN]
+[0m22:08:32  34 of 44 START test unique_dim_product_product_id .............................. [RUN]
+[0m22:08:32  29 of 44 OK created sql table model main.dim_school ............................ [[32mOK[0m in 0.08s]
+[0m22:08:32  35 of 44 START test not_null_fct_referral_referral_id .......................... [RUN]
+[0m22:08:32  30 of 44 OK created sql table model main.dim_user .............................. [[32mOK[0m in 0.08s]
+[0m22:08:32  36 of 44 START test unique_fct_referral_referral_id ............................ [RUN]
+[0m22:08:32  33 of 44 PASS not_null_dim_product_product_id .................................. [[32mPASS[0m in 0.04s]
+[0m22:08:32  37 of 44 START test not_null_fct_purchase_purchase_id .......................... [RUN]
+[0m22:08:32  34 of 44 PASS unique_dim_product_product_id .................................... [[32mPASS[0m in 0.04s]
+[0m22:08:32  38 of 44 START test unique_fct_purchase_purchase_id ............................ [RUN]
+[0m22:08:32  35 of 44 PASS not_null_fct_referral_referral_id ................................ [[32mPASS[0m in 0.03s]
+[0m22:08:32  39 of 44 START test not_null_dim_school_school_id .............................. [RUN]
+[0m22:08:32  36 of 44 PASS unique_fct_referral_referral_id .................................. [[32mPASS[0m in 0.02s]
+[0m22:08:32  40 of 44 START test unique_dim_school_school_id ................................ [RUN]
+[0m22:08:32  37 of 44 PASS not_null_fct_purchase_purchase_id ................................ [[32mPASS[0m in 0.03s]
+[0m22:08:32  38 of 44 PASS unique_fct_purchase_purchase_id .................................. [[32mPASS[0m in 0.03s]
+[0m22:08:32  41 of 44 NO-OP exposure streamlit_product_dashboard ............................ [[33mNO-OP[0m in 0.00s]
+[0m22:08:32  39 of 44 PASS not_null_dim_school_school_id .................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  42 of 44 NO-OP exposure streamlit_referral_finance_dashboard ................... [[33mNO-OP[0m in 0.00s]
+[0m22:08:32  43 of 44 START test not_null_dim_user_user_id .................................. [RUN]
+[0m22:08:32  44 of 44 START test unique_dim_user_user_id .................................... [RUN]
+[0m22:08:32  40 of 44 PASS unique_dim_school_school_id ...................................... [[32mPASS[0m in 0.03s]
+[0m22:08:32  43 of 44 PASS not_null_dim_user_user_id ........................................ [[32mPASS[0m in 0.02s]
+[0m22:08:32  44 of 44 PASS unique_dim_user_user_id .......................................... [[32mPASS[0m in 0.02s]
+[0m22:08:32  
+[0m22:08:32  Finished running 2 exposures, 6 table models, 30 data tests, 6 view models in 0 hours 0 minutes and 0.72 seconds (0.72s).
+[0m22:08:32  
+[0m22:08:32  [32mCompleted successfully[0m
+[0m22:08:32  
+[0m22:08:32  Done. PASS=42 WARN=0 ERROR=0 SKIP=0 NO-OP=2 TOTAL=44
+
+$ dbt test --profiles-dir dbt_carton_caps --project-dir dbt_carton_caps
+[0m22:08:34  Running with dbt=1.11.2
+[0m22:08:34  Registered adapter: duckdb=1.10.0
+[0m22:08:35  Found 12 models, 30 data tests, 6 sources, 2 exposures, 472 macros
+[0m22:08:35  
+[0m22:08:35  Concurrency: 4 threads (target='dev')
+[0m22:08:35  
+[0m22:08:35  1 of 30 START test not_null_dim_product_product_id ............................. [RUN]
+[0m22:08:35  2 of 30 START test not_null_dim_school_school_id ............................... [RUN]
+[0m22:08:35  3 of 30 START test not_null_dim_user_user_id ................................... [RUN]
+[0m22:08:35  4 of 30 START test not_null_fct_purchase_purchase_id ........................... [RUN]
+[0m22:08:35  1 of 30 PASS not_null_dim_product_product_id ................................... [[32mPASS[0m in 0.05s]
+[0m22:08:35  3 of 30 PASS not_null_dim_user_user_id ......................................... [[32mPASS[0m in 0.05s]
+[0m22:08:35  2 of 30 PASS not_null_dim_school_school_id ..................................... [[32mPASS[0m in 0.05s]
+[0m22:08:35  4 of 30 PASS not_null_fct_purchase_purchase_id ................................. [[32mPASS[0m in 0.05s]
+[0m22:08:35  5 of 30 START test not_null_fct_referral_referral_id ........................... [RUN]
+[0m22:08:35  6 of 30 START test not_null_fct_rewards_reward_id .............................. [RUN]
+[0m22:08:35  7 of 30 START test not_null_stg_events_event_id ................................ [RUN]
+[0m22:08:35  8 of 30 START test not_null_stg_events_user_id ................................. [RUN]
+[0m22:08:35  5 of 30 PASS not_null_fct_referral_referral_id ................................. [[32mPASS[0m in 0.06s]
+[0m22:08:35  6 of 30 PASS not_null_fct_rewards_reward_id .................................... [[32mPASS[0m in 0.06s]
+[0m22:08:35  8 of 30 PASS not_null_stg_events_user_id ....................................... [[32mPASS[0m in 0.06s]
+[0m22:08:35  9 of 30 START test not_null_stg_products_product_id ............................ [RUN]
+[0m22:08:35  7 of 30 PASS not_null_stg_events_event_id ...................................... [[32mPASS[0m in 0.06s]
+[0m22:08:35  10 of 30 START test not_null_stg_purchases_product_id .......................... [RUN]
+[0m22:08:35  11 of 30 START test not_null_stg_purchases_purchase_id ......................... [RUN]
+[0m22:08:35  12 of 30 START test not_null_stg_purchases_user_id ............................. [RUN]
+[0m22:08:35  9 of 30 PASS not_null_stg_products_product_id .................................. [[32mPASS[0m in 0.03s]
+[0m22:08:35  13 of 30 START test not_null_stg_referrals_referral_id ......................... [RUN]
+[0m22:08:35  12 of 30 PASS not_null_stg_purchases_user_id ................................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  11 of 30 PASS not_null_stg_purchases_purchase_id ............................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  10 of 30 PASS not_null_stg_purchases_product_id ................................ [[32mPASS[0m in 0.04s]
+[0m22:08:35  14 of 30 START test not_null_stg_referrals_referrer_user_id .................... [RUN]
+[0m22:08:35  15 of 30 START test not_null_stg_schools_school_id ............................. [RUN]
+[0m22:08:35  16 of 30 START test not_null_stg_users_school_id ............................... [RUN]
+[0m22:08:35  13 of 30 PASS not_null_stg_referrals_referral_id ............................... [[32mPASS[0m in 0.01s]
+[0m22:08:35  17 of 30 START test not_null_stg_users_user_id ................................. [RUN]
+[0m22:08:35  14 of 30 PASS not_null_stg_referrals_referrer_user_id .......................... [[32mPASS[0m in 0.02s]
+[0m22:08:35  15 of 30 PASS not_null_stg_schools_school_id ................................... [[32mPASS[0m in 0.02s]
+[0m22:08:35  16 of 30 PASS not_null_stg_users_school_id ..................................... [[32mPASS[0m in 0.02s]
+[0m22:08:35  18 of 30 START test test_events_in_window ...................................... [RUN]
+[0m22:08:35  19 of 30 START test unique_dim_product_product_id .............................. [RUN]
+[0m22:08:35  20 of 30 START test unique_dim_school_school_id ................................ [RUN]
+[0m22:08:35  17 of 30 PASS not_null_stg_users_user_id ....................................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  21 of 30 START test unique_dim_user_user_id .................................... [RUN]
+[0m22:08:35  19 of 30 PASS unique_dim_product_product_id .................................... [[32mPASS[0m in 0.05s]
+[0m22:08:35  18 of 30 PASS test_events_in_window ............................................ [[32mPASS[0m in 0.05s]
+[0m22:08:35  20 of 30 PASS unique_dim_school_school_id ...................................... [[32mPASS[0m in 0.03s]
+[0m22:08:35  22 of 30 START test unique_fct_purchase_purchase_id ............................ [RUN]
+[0m22:08:35  23 of 30 START test unique_fct_referral_referral_id ............................ [RUN]
+[0m22:08:35  24 of 30 START test unique_fct_rewards_reward_id ............................... [RUN]
+[0m22:08:35  21 of 30 PASS unique_dim_user_user_id .......................................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  25 of 30 START test unique_stg_events_event_id ................................. [RUN]
+[0m22:08:35  22 of 30 PASS unique_fct_purchase_purchase_id .................................. [[32mPASS[0m in 0.03s]
+[0m22:08:35  24 of 30 PASS unique_fct_rewards_reward_id ..................................... [[32mPASS[0m in 0.03s]
+[0m22:08:35  23 of 30 PASS unique_fct_referral_referral_id .................................. [[32mPASS[0m in 0.04s]
+[0m22:08:35  26 of 30 START test unique_stg_products_product_id ............................. [RUN]
+[0m22:08:35  27 of 30 START test unique_stg_purchases_purchase_id ........................... [RUN]
+[0m22:08:35  28 of 30 START test unique_stg_referrals_referral_id ........................... [RUN]
+[0m22:08:35  25 of 30 PASS unique_stg_events_event_id ....................................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  29 of 30 START test unique_stg_schools_school_id ............................... [RUN]
+[0m22:08:35  26 of 30 PASS unique_stg_products_product_id ................................... [[32mPASS[0m in 0.04s]
+[0m22:08:35  28 of 30 PASS unique_stg_referrals_referral_id ................................. [[32mPASS[0m in 0.04s]
+[0m22:08:35  30 of 30 START test unique_stg_users_user_id ................................... [RUN]
+[0m22:08:35  27 of 30 PASS unique_stg_purchases_purchase_id ................................. [[32mPASS[0m in 0.05s]
+[0m22:08:35  29 of 30 PASS unique_stg_schools_school_id ..................................... [[32mPASS[0m in 0.03s]
+[0m22:08:35  30 of 30 PASS unique_stg_users_user_id ......................................... [[32mPASS[0m in 0.02s]
+[0m22:08:35  
+[0m22:08:35  Finished running 30 data tests in 0 hours 0 minutes and 0.43 seconds (0.43s).
+[0m22:08:35  
+[0m22:08:35  [32mCompleted successfully[0m
+[0m22:08:35  
+[0m22:08:35  Done. PASS=30 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=30

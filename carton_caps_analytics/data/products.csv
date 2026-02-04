@@ -1,0 +1,101 @@
+product_id,name,category,price,points_per_dollar,created_at
+1,Slurm Cereal,Breakfast,4.09,5,2023-05-03 00:00:00
+2,Slurm Cereal,Breakfast,5.39,5,2023-05-15 00:00:00
+3,Wonka Cereal,Breakfast,3.35,1,2023-09-22 00:00:00
+4,Atreides Cereal,Breakfast,9.87,1,2023-06-07 00:00:00
+5,Initech Oatmeal,Breakfast,8.81,5,2023-07-24 00:00:00
+6,Wonka Oatmeal,Breakfast,8.14,3,2023-08-12 00:00:00
+7,Buzz Cola Oatmeal,Breakfast,2.58,1,2023-06-07 00:00:00
+8,Brawndo Oatmeal,Breakfast,7.44,2,2023-11-28 00:00:00
+9,Atreides Granola Bars,Breakfast,8.89,5,2023-08-21 00:00:00
+10,Initech Granola Bars,Breakfast,6.83,2,2023-10-15 00:00:00
+11,Krusty Granola Bars,Breakfast,6.45,3,2023-09-22 00:00:00
+12,Slurm Granola Bars,Breakfast,7.33,5,2023-05-08 00:00:00
+13,Tyrell Yogurt,Breakfast,7.86,1,2023-10-10 00:00:00
+14,CHOAM Yogurt,Breakfast,5.23,5,2023-04-01 00:00:00
+15,Krusty Yogurt,Breakfast,7.51,5,2023-04-01 00:00:00
+16,Lard Lad Yogurt,Breakfast,5.18,2,2023-05-07 00:00:00
+17,Atreides Waffles,Breakfast,9.4,3,2023-11-20 00:00:00
+18,Cyberdyne Waffles,Breakfast,2.69,2,2023-04-11 00:00:00
+19,Soylent Waffles,Breakfast,9.38,2,2023-08-30 00:00:00
+20,Atreides Waffles,Breakfast,5.39,5,2023-03-14 00:00:00
+21,Wonka Chips,Snacks,8.64,2,2023-04-17 00:00:00
+22,Buzz Cola Chips,Snacks,7.14,5,2023-06-19 00:00:00
+23,Wonka Chips,Snacks,3.34,5,2023-07-06 00:00:00
+24,Slurm Chips,Snacks,6.64,3,2023-02-16 00:00:00
+25,Lard Lad Crackers,Snacks,6.27,3,2023-06-11 00:00:00
+26,CHOAM Crackers,Snacks,6.97,5,2023-09-16 00:00:00
+27,CHOAM Crackers,Snacks,5.46,5,2023-07-04 00:00:00
+28,Brawndo Crackers,Snacks,2.19,3,2023-03-05 00:00:00
+29,Wonka Cookies,Snacks,2.19,1,2023-07-07 00:00:00
+30,Harkonnen Cookies,Snacks,2.99,1,2023-05-18 00:00:00
+31,Brawndo Cookies,Snacks,4.63,1,2023-09-22 00:00:00
+32,Tyrell Cookies,Snacks,6.71,5,2023-06-06 00:00:00
+33,Harkonnen Pretzels,Snacks,8.4,1,2023-01-05 00:00:00
+34,Initech Pretzels,Snacks,2.9,5,2023-11-12 00:00:00
+35,Tyrell Pretzels,Snacks,2.44,1,2023-11-30 00:00:00
+36,Soylent Pretzels,Snacks,7.74,3,2023-07-17 00:00:00
+37,Soylent Popcorn,Snacks,6.74,5,2023-02-18 00:00:00
+38,CHOAM Popcorn,Snacks,8.67,3,2023-01-09 00:00:00
+39,Duff Popcorn,Snacks,5.69,2,2023-01-08 00:00:00
+40,Lard Lad Popcorn,Snacks,2.12,2,2023-11-23 00:00:00
+41,Lard Lad Juice,Beverages,2.98,3,2023-01-12 00:00:00
+42,Cyberdyne Juice,Beverages,2.1,1,2023-03-25 00:00:00
+43,Wonka Juice,Beverages,4.19,5,2023-01-07 00:00:00
+44,Lard Lad Juice,Beverages,6.8,2,2023-09-11 00:00:00
+45,Brawndo Water,Beverages,3.81,5,2023-01-27 00:00:00
+46,Krusty Water,Beverages,3.68,1,2023-05-20 00:00:00
+47,Duff Water,Beverages,3.34,1,2023-03-22 00:00:00
+48,Wonka Water,Beverages,7.1,2,2023-07-22 00:00:00
+49,Cyberdyne Sports Drink,Beverages,8.27,5,2023-09-22 00:00:00
+50,Harkonnen Sports Drink,Beverages,4.07,3,2023-08-02 00:00:00
+51,Initech Sports Drink,Beverages,5.75,1,2023-06-18 00:00:00
+52,Buzz Cola Sports Drink,Beverages,5.95,3,2023-06-29 00:00:00
+53,Tyrell Tea,Beverages,5.12,5,2023-03-24 00:00:00
+54,Cyberdyne Tea,Beverages,4.04,5,2023-08-18 00:00:00
+55,Initech Tea,Beverages,4.89,3,2023-05-26 00:00:00
+56,Umbrella Tea,Beverages,3.74,1,2023-07-12 00:00:00
+57,Atreides Coffee,Beverages,5.04,5,2023-06-04 00:00:00
+58,Brawndo Coffee,Beverages,9.41,3,2023-03-18 00:00:00
+59,Initech Coffee,Beverages,3.58,2,2023-06-05 00:00:00
+60,Atreides Coffee,Beverages,7.23,2,2023-05-03 00:00:00
+61,Brawndo Milk,Dairy,8.65,5,2023-05-16 00:00:00
+62,Umbrella Milk,Dairy,8.63,2,2023-09-15 00:00:00
+63,Harkonnen Milk,Dairy,2.22,5,2023-05-30 00:00:00
+64,Wonka Milk,Dairy,6.19,3,2023-07-31 00:00:00
+65,Atreides Cheese,Dairy,3.26,2,2023-01-04 00:00:00
+66,Slurm Cheese,Dairy,4.0,5,2023-01-31 00:00:00
+67,Duff Cheese,Dairy,7.51,3,2023-11-20 00:00:00
+68,Initech Cheese,Dairy,8.1,3,2023-11-02 00:00:00
+69,Duff Butter,Dairy,4.88,2,2023-03-05 00:00:00
+70,Harkonnen Butter,Dairy,4.14,2,2023-11-28 00:00:00
+71,Brawndo Butter,Dairy,2.4,3,2023-09-05 00:00:00
+72,Brawndo Butter,Dairy,9.33,1,2023-04-07 00:00:00
+73,CHOAM Ice Cream,Dairy,5.56,2,2023-02-03 00:00:00
+74,Tyrell Ice Cream,Dairy,4.51,1,2023-08-01 00:00:00
+75,Wonka Ice Cream,Dairy,6.49,1,2023-05-01 00:00:00
+76,Tyrell Ice Cream,Dairy,3.09,1,2023-06-04 00:00:00
+77,Lard Lad Cream Cheese,Dairy,2.3,1,2023-07-02 00:00:00
+78,Wonka Cream Cheese,Dairy,9.93,2,2023-02-18 00:00:00
+79,Brawndo Cream Cheese,Dairy,2.74,3,2023-08-08 00:00:00
+80,Lard Lad Cream Cheese,Dairy,9.07,5,2023-01-31 00:00:00
+81,Slurm Pasta,Pantry,4.11,2,2023-03-26 00:00:00
+82,Umbrella Pasta,Pantry,6.95,2,2023-10-23 00:00:00
+83,Krusty Pasta,Pantry,8.37,1,2023-09-21 00:00:00
+84,Tyrell Pasta,Pantry,3.9,1,2023-07-15 00:00:00
+85,Soylent Rice,Pantry,9.94,5,2023-06-02 00:00:00
+86,Harkonnen Rice,Pantry,3.47,3,2023-09-17 00:00:00
+87,Cyberdyne Rice,Pantry,6.4,2,2023-06-09 00:00:00
+88,Duff Rice,Pantry,2.88,3,2023-03-24 00:00:00
+89,Brawndo Soup,Pantry,3.78,3,2023-06-07 00:00:00
+90,Buzz Cola Soup,Pantry,4.33,3,2023-01-13 00:00:00
+91,Duff Soup,Pantry,8.04,1,2023-02-06 00:00:00
+92,Krusty Soup,Pantry,3.85,1,2023-04-02 00:00:00
+93,Initech Sauce,Pantry,7.31,3,2023-06-02 00:00:00
+94,Slurm Sauce,Pantry,4.49,5,2023-11-16 00:00:00
+95,Atreides Sauce,Pantry,9.38,2,2023-04-04 00:00:00
+96,Krusty Sauce,Pantry,3.48,5,2023-04-13 00:00:00
+97,Harkonnen Oil,Pantry,3.59,3,2023-05-19 00:00:00
+98,Lard Lad Oil,Pantry,2.75,1,2023-06-23 00:00:00
+99,Tyrell Oil,Pantry,8.63,5,2023-09-08 00:00:00
+100,Bachelor Chow Oil,Pantry,8.08,1,2023-09-05 00:00:00

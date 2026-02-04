@@ -1,0 +1,56 @@
+Pipeline run_id=20260203T220117Z
+Using PYTHON=C:\repos\livefront\.venv\Scripts\python.exe
+
+$ C:\repos\livefront\.venv\Scripts\python.exe generator/data_generator.py
+C:\repos\livefront\carton_caps_analytics\generator\data_generator.py:775: DeprecationWarning: The default datetime adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+  conn.execute(insert_sql, values)
+Generating Carton Caps data...
+----------------------------------------
+Generating 50 schools...
+Saved 50 records to ./data\schools.csv
+Generating 1000 users...
+Saved 1000 records to ./data\users.csv
+Generating 100 products...
+Saved 100 records to ./data\products.csv
+Generating 1000 referrals (may add new users)...
+Saved 1000 records to ./data\referrals.csv
+Generating 10000 purchases...
+Saved 10151 records to ./data\purchases.csv
+Generating events (product + referral lifecycle)...
+Saved 27398 records to ./data\events.csv
+
+Saving to SQLite database...
+Saved all data to ./data\carton_caps_generated.db
+----------------------------------------
+Data generation complete!
+
+Artifacts written to ./data/
+ - schools.csv, users.csv, products.csv, referrals.csv, purchases.csv, events.csv
+ - carton_caps_generated.db
+
+$ C:\repos\livefront\.venv\Scripts\python.exe duckdb/load_raw.py 20260203T220117Z
+Using Python interpreter: C:\repos\livefront\.venv\Scripts\python.exe
+Writing DuckDB to: C:\repos\livefront\carton_caps_analytics\duckdb\carton_caps_20260203T220117Z.duckdb
+events     27398
+products   100
+purchases  10151
+referrals  1000
+schools    50
+users      1000
+
+$ dbt build --profiles-dir dbt_carton_caps --project-dir dbt_carton_caps
+[0m22:01:19  Running with dbt=1.11.2
+[0m22:01:19  Registered adapter: duckdb=1.10.0
+[0m22:01:20  Found 12 models, 30 data tests, 6 sources, 2 exposures, 472 macros
+[0m22:01:20  
+[0m22:01:20  Concurrency: 4 threads (target='dev')
+[0m22:01:20  
+[0m22:01:20  
+[0m22:01:20  Finished running  in 0 hours 0 minutes and 0.11 seconds (0.11s).
+[0m22:01:20  Encountered an error:
+Runtime Error
+  IO Error: Cannot open file "c:\repos\livefront\carton_caps_analytics\duckdb\carton_caps_20260203t214833z.duckdb": The process cannot access the file because it is being used by another process.
+
+  
+  File is already open in 
+  C:\Users\Gage\AppData\Local\Programs\Python\Python312\python.exe (PID 28692)

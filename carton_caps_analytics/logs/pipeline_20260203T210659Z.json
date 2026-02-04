@@ -1,0 +1,35 @@
+{
+  "run_id": "20260203T210659Z",
+  "python_executable": "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+  "started_at_utc": "2026-02-03T21:06:59.947198Z",
+  "steps": [
+    {
+      "name": "generate_data",
+      "cmd": [
+        "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+        "generator/data_generator.py"
+      ],
+      "return_code": 0,
+      "duration_seconds": 0.709
+    },
+    {
+      "name": "load_duckdb_raw",
+      "cmd": [
+        "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+        "duckdb/load_raw.py"
+      ],
+      "return_code": 1,
+      "duration_seconds": 0.18
+    }
+  ],
+  "status": "failed",
+  "failed_step": "load_duckdb_raw",
+  "schema_snapshot": "C:\\repos\\livefront\\carton_caps_analytics\\logs\\schema_20260203T210659Z.json",
+  "copied_artifacts": {
+    "run_results": true,
+    "dbt_manifest": true
+  },
+  "duration_seconds": 1.056,
+  "ended_at_utc": "2026-02-03T21:07:01.003450Z",
+  "log_path": "C:\\repos\\livefront\\carton_caps_analytics\\logs\\pipeline_20260203T210659Z.log"
+}

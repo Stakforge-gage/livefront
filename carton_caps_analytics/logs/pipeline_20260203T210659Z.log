@@ -1,0 +1,40 @@
+Pipeline run_id=20260203T210659Z
+Using PYTHON=C:\repos\livefront\.venv\Scripts\python.exe
+
+$ C:\repos\livefront\.venv\Scripts\python.exe generator/data_generator.py
+C:\repos\livefront\carton_caps_analytics\generator\data_generator.py:775: DeprecationWarning: The default datetime adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+  conn.execute(insert_sql, values)
+Generating Carton Caps data...
+----------------------------------------
+Generating 50 schools...
+Saved 50 records to ./data\schools.csv
+Generating 1000 users...
+Saved 1000 records to ./data\users.csv
+Generating 100 products...
+Saved 100 records to ./data\products.csv
+Generating 1000 referrals (may add new users)...
+Saved 1000 records to ./data\referrals.csv
+Generating 10000 purchases...
+Saved 10151 records to ./data\purchases.csv
+Generating events (product + referral lifecycle)...
+Saved 27398 records to ./data\events.csv
+
+Saving to SQLite database...
+Saved all data to ./data\carton_caps_generated.db
+----------------------------------------
+Data generation complete!
+
+Artifacts written to ./data/
+ - schools.csv, users.csv, products.csv, referrals.csv, purchases.csv, events.csv
+ - carton_caps_generated.db
+
+$ C:\repos\livefront\.venv\Scripts\python.exe duckdb/load_raw.py
+Traceback (most recent call last):
+  File "C:\repos\livefront\carton_caps_analytics\duckdb\load_raw.py", line 8, in <module>
+    con = duckdb.connect(str(DB_PATH))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\repos\livefront\carton_caps_analytics\duckdb\carton_caps.duckdb": The process cannot access the file because it is being used by another process.
+
+
+File is already open in 
+C:\Users\Gage\AppData\Local\Programs\Python\Python312\python.exe (PID 28928)

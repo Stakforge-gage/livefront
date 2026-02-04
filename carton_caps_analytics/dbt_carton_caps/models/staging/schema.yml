@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+      - name: school_id
+        tests: [not_null]
+
+  - name: stg_schools
+    columns:
+      - name: school_id
+        tests: [not_null, unique]
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+
+  - name: stg_purchases
+    columns:
+      - name: purchase_id
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null]
+      - name: product_id
+        tests: [not_null]
+
+  - name: stg_referrals
+    columns:
+      - name: referral_id
+        tests: [not_null, unique]
+      - name: referrer_user_id
+        tests: [not_null]
+
+  - name: stg_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null]

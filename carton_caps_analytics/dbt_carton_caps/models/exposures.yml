@@ -1,0 +1,22 @@
+version: 2
+
+exposures:
+  - name: streamlit_product_dashboard
+    type: dashboard
+    maturity: medium
+    owner:
+      name: Livefront Director of Data (role-play)
+    depends_on:
+      - ref('fct_purchase')
+      - ref('stg_events')
+      - ref('dim_user')
+
+  - name: streamlit_referral_finance_dashboard
+    type: dashboard
+    maturity: medium
+    owner:
+      name: Livefront Director of Data (role-play)
+    depends_on:
+      - ref('fct_referral')
+      - ref('fct_rewards')
+      - ref('dim_user')

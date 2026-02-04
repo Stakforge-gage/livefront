@@ -1,0 +1,51 @@
+school_id,name,address,city,state,zip_code,created_at
+1,Riverside Elementary School,4606 Oak St,Riverside,TX,23434,2022-11-11 00:00:00
+2,Madison High School,1524 School St,Springfield,CA,22280,2019-12-12 00:00:00
+3,Waterdeep Elementary School,9963 Main St,Fairview,TX,95181,2020-03-03 00:00:00
+4,Ix Middle School,7459 Elm St,Springfield,TX,65392,2021-10-07 00:00:00
+5,Ooo Middle School,3627 Elm St,Springfield,CA,59797,2022-02-17 00:00:00
+6,Hill Valley Middle School,9991 Elm St,Springfield,FL,80284,2021-01-27 00:00:00
+7,Hawkins High School,6025 Oak St,Springfield,CA,96673,2021-05-11 00:00:00
+8,Neverwinter Middle School,3914 Main St,Georgetown,NY,69429,2022-07-22 00:00:00
+9,Riverside Middle School,6165 Elm St,Riverside,NY,99593,2022-02-02 00:00:00
+10,Georgetown High School,8851 Oak St,Riverside,FL,59735,2022-01-16 00:00:00
+11,Baldur High School,9225 Oak St,Madison,CA,40021,2019-02-22 00:00:00
+12,Springfield Middle School,4486 Main St,Riverside,IL,51245,2020-10-02 00:00:00
+13,Waterdeep High School,6582 School St,Riverside,NY,28301,2020-03-15 00:00:00
+14,Neverwinter High School,8930 Elm St,Fairview,FL,86484,2019-11-09 00:00:00
+15,Fire Kingdom Middle School,2366 School St,Springfield,CA,24371,2021-10-09 00:00:00
+16,Twin Peaks High School,7016 Main St,Georgetown,FL,88104,2022-02-08 00:00:00
+17,Arrakis High School,9164 Main St,Springfield,IL,44973,2021-08-05 00:00:00
+18,Cloud Kingdom Elementary School,153 Elm St,Fairview,TX,76542,2020-06-16 00:00:00
+19,Hill Valley High School,8417 Oak St,Riverside,NY,31174,2021-04-30 00:00:00
+20,Ix High School,9913 Elm St,Georgetown,CA,24662,2022-12-31 00:00:00
+21,Candy Kingdom Middle School,1049 Oak St,Fairview,CA,21226,2021-08-29 00:00:00
+22,Caladan Elementary School,2160 Oak St,Georgetown,IL,31643,2020-01-07 00:00:00
+23,Georgetown Middle School,8935 Oak St,Madison,FL,98039,2021-10-25 00:00:00
+24,Arrakis Elementary School,3781 Main St,Madison,CA,87110,2021-08-12 00:00:00
+25,Ix Elementary School,3708 Main St,Springfield,CA,40007,2019-09-14 00:00:00
+26,Hawkins Elementary School,1260 Oak St,Madison,FL,38080,2021-02-24 00:00:00
+27,Fairview High School,4081 School St,Georgetown,TX,22363,2020-05-08 00:00:00
+28,Cloud Kingdom Middle School,6835 School St,Springfield,CA,17944,2020-08-17 00:00:00
+29,Fire Kingdom High School,1890 Oak St,Riverside,TX,80292,2021-02-06 00:00:00
+30,Baldur Middle School,1335 School St,Fairview,CA,16630,2021-08-08 00:00:00
+31,Riverside High School,1628 Oak St,Riverside,FL,73653,2022-12-02 00:00:00
+32,Fire Kingdom Elementary School,6309 Main St,Georgetown,NY,69638,2022-01-29 00:00:00
+33,Ravenloft Middle School,9205 School St,Riverside,TX,48890,2019-02-05 00:00:00
+34,Ooo Elementary School,9671 School St,Fairview,IL,30635,2022-09-21 00:00:00
+35,Springfield High School,3144 Main St,Fairview,CA,98501,2022-07-21 00:00:00
+36,Georgetown Elementary School,1443 School St,Fairview,IL,78522,2019-07-13 00:00:00
+37,Arrakis Middle School,252 School St,Fairview,IL,23104,2022-08-06 00:00:00
+38,Baldur Elementary School,1227 Oak St,Madison,NY,30676,2021-01-17 00:00:00
+39,Ravenloft High School,8766 Main St,Fairview,NY,96951,2019-05-03 00:00:00
+40,Hill Valley Elementary School,1991 Main St,Fairview,TX,45697,2021-07-09 00:00:00
+41,Caladan Middle School,1612 School St,Madison,CA,10464,2022-09-19 00:00:00
+42,Rivendell High School,9138 School St,Fairview,CA,24663,2020-07-11 00:00:00
+43,Twin Peaks Middle School,785 Elm St,Madison,CA,56898,2022-04-15 00:00:00
+44,Twin Peaks Elementary School,3000 School St,Springfield,TX,53540,2022-02-03 00:00:00
+45,Cloud Kingdom High School,4471 Oak St,Springfield,FL,15075,2021-08-11 00:00:00
+46,Waterdeep Middle School,5100 Oak St,Riverside,CA,96511,2021-01-15 00:00:00
+47,Hawkins Middle School,8446 School St,Fairview,NY,13617,2021-01-12 00:00:00
+48,Fairview Elementary School,827 School St,Springfield,IL,80575,2021-07-29 00:00:00
+49,Madison Elementary School,7166 Main St,Madison,IL,51145,2020-12-17 00:00:00
+50,Fairview Middle School,9077 Main St,Madison,NY,37549,2020-09-22 00:00:00

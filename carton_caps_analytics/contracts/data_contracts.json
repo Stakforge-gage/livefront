@@ -1,0 +1,89 @@
+{
+  "contracts": [
+    {
+      "name": "raw.events",
+      "layer": "raw",
+      "owner": "Data Engineering",
+      "description": "Generated event stream for product + referral lifecycle",
+      "primary_key": "event_id",
+      "freshness_field": "event_at",
+      "sla": {
+        "fresh_within_days": 3,
+        "min_rows": 1000
+      },
+      "critical_tests": [
+        "not_null(event_id)",
+        "unique(event_id)",
+        "not_null(user_id)"
+      ]
+    },
+    {
+      "name": "stg_events",
+      "layer": "staging",
+      "owner": "Analytics Engineering (dbt)",
+      "description": "Typed/cleaned events for downstream use",
+      "primary_key": "event_id",
+      "freshness_field": "event_at",
+      "sla": {
+        "fresh_within_days": 3,
+        "min_rows": 1000
+      },
+      "critical_tests": [
+        "not_null(event_id)",
+        "unique(event_id)",
+        "not_null(user_id)"
+      ]
+    },
+    {
+      "name": "fct_purchase",
+      "layer": "marts",
+      "owner": "Analytics Engineering (dbt)",
+      "description": "Purchase fact enriched with school + product category",
+      "primary_key": "purchase_id",
+      "freshness_field": "purchased_at",
+      "sla": {
+        "fresh_within_days": 3,
+        "min_rows": 1000
+      },
+      "critical_tests": [
+        "not_null(purchase_id)",
+        "unique(purchase_id)",
+        "not_null(user_id)",
+        "not_null(product_id)"
+      ]
+    },
+    {
+      "name": "fct_referral",
+      "layer": "marts",
+      "owner": "Analytics Engineering (dbt)",
+      "description": "Referral funnel + rule compliance (48h) + eligibility",
+      "primary_key": "referral_id",
+      "freshness_field": "sent_at",
+      "sla": {
+        "fresh_within_days": 7,
+        "min_rows": 100
+      },
+      "critical_tests": [
+        "not_null(referral_id)",
+        "unique(referral_id)",
+        "not_null(referrer_user_id)"
+      ]
+    },
+    {
+      "name": "fct_rewards",
+      "layer": "marts",
+      "owner": "Finance Analytics",
+      "description": "Reward award/redeem ledger for liability and cash-out views",
+      "primary_key": "reward_id",
+      "freshness_field": "awarded_at",
+      "sla": {
+        "fresh_within_days": 7,
+        "min_rows": 10
+      },
+      "critical_tests": [
+        "not_null(reward_id)",
+        "unique(reward_id)"
+      ]
+    }
+  ]
+}

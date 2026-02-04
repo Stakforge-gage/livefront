@@ -1,0 +1,40 @@
+{
+    "path_count": 146,
+    "parsed_path_count": 1,
+    "static_analysis_path_count": 0,
+    "static_analysis_parsed_path_count": 0,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.02267610002309084,
+    "load_macros_elapsed": 0.00027860002592206,
+    "parse_project_elapsed": 0.020925199962221086,
+    "patch_sources_elapsed": 1.179997343569994e-05,
+    "process_manifest_elapsed": 0.00018480001017451286,
+    "load_all_elapsed": 0.16570869996212423,
+    "projects": [
+        {
+            "project_name": "dbt_carton_caps",
+            "elapsed": 0.02085820003412664,
+            "parsers": [
+                {
+                    "parser": "test",
+                    "elapsed": 0.020853099995292723,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        },
+        {
+            "project_name": "dbt_duckdb",
+            "elapsed": 0,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0,
+            "parsers": [],
+            "parsed_path_count": 0
+        }
+    ]
+}

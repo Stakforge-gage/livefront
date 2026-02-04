@@ -1,0 +1,801 @@
+{
+  "captured_at_utc": "2026-02-03T22:22:35.843260Z",
+  "db_path": "C:\\repos\\livefront\\carton_caps_analytics\\duckdb\\carton_caps.duckdb",
+  "schemas": {
+    "main": {
+      "dim_product": [
+        {
+          "column": "product_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "category",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "price",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_per_dollar",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "dim_school": [
+        {
+          "column": "school_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "address",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "city",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "state",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "zip_code",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "dim_user": [
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "first_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "last_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_state",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "is_verified",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "device_id",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "marketing_channel",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ],
+      "fct_purchase": [
+        {
+          "column": "purchase_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "product_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "product_category",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "quantity",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "price_paid",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_earned",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "purchased_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "purchase_date",
+          "type": "DATE",
+          "nullable": "YES"
+        },
+        {
+          "column": "day_of_week",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "hour_of_day",
+          "type": "INTEGER",
+          "nullable": "YES"
+        }
+      ],
+      "fct_referral": [
+        {
+          "column": "referral_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referrer_user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_code",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "sent_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "converted_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "status",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "install_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_applied_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "onboarding_completed_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_linked_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "first_purchase_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "qualifying_action_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "within_48h_window",
+          "type": "BOOLEAN",
+          "nullable": "YES"
+        },
+        {
+          "column": "eligible_referral",
+          "type": "BOOLEAN",
+          "nullable": "YES"
+        }
+      ],
+      "fct_rewards": [
+        {
+          "column": "reward_id",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "reward_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "awarded_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "redeemed_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "stg_events": [
+        {
+          "column": "event_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "event_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "event_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "metadata_json",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ],
+      "stg_products": [
+        {
+          "column": "product_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "category",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "price",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_per_dollar",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "stg_purchases": [
+        {
+          "column": "purchase_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "product_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "quantity",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "price_paid",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_earned",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "purchased_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "day_of_week",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "hour_of_day",
+          "type": "INTEGER",
+          "nullable": "YES"
+        }
+      ],
+      "stg_referrals": [
+        {
+          "column": "referral_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referrer_user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_code",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "sent_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "converted_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "status",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ],
+      "stg_schools": [
+        {
+          "column": "school_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "address",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "city",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "state",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "zip_code",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "stg_users": [
+        {
+          "column": "user_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "first_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "last_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_id",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "is_verified",
+          "type": "INTEGER",
+          "nullable": "YES"
+        },
+        {
+          "column": "device_id",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "marketing_channel",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ]
+    },
+    "raw": {
+      "events": [
+        {
+          "column": "event_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "event_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "event_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "metadata_json",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ],
+      "products": [
+        {
+          "column": "product_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "category",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "price",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_per_dollar",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "purchases": [
+        {
+          "column": "purchase_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "product_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "quantity",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "price_paid",
+          "type": "DOUBLE",
+          "nullable": "YES"
+        },
+        {
+          "column": "points_earned",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "purchased_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "day_of_week",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "hour_of_day",
+          "type": "BIGINT",
+          "nullable": "YES"
+        }
+      ],
+      "referrals": [
+        {
+          "column": "referral_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "referrer_user_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "referred_user_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "referral_code",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "sent_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "converted_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "status",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ],
+      "schools": [
+        {
+          "column": "school_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "address",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "city",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "state",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "zip_code",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        }
+      ],
+      "users": [
+        {
+          "column": "user_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "first_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "last_name",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "email",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "school_id",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "created_at",
+          "type": "TIMESTAMP",
+          "nullable": "YES"
+        },
+        {
+          "column": "user_type",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "is_verified",
+          "type": "BIGINT",
+          "nullable": "YES"
+        },
+        {
+          "column": "device_id",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        },
+        {
+          "column": "marketing_channel",
+          "type": "VARCHAR",
+          "nullable": "YES"
+        }
+      ]
+    }
+  }
+}

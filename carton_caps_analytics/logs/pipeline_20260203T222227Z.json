@@ -1,0 +1,63 @@
+{
+  "run_id": "20260203T222227Z",
+  "python_executable": "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+  "duckdb_file": "carton_caps_20260203T222227Z.duckdb",
+  "duckdb_path": "C:\\repos\\livefront\\carton_caps_analytics\\duckdb\\carton_caps_20260203T222227Z.duckdb",
+  "started_at_utc": "2026-02-03T22:22:27.897370Z",
+  "steps": [
+    {
+      "name": "generate_data",
+      "cmd": [
+        "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+        "generator/data_generator.py"
+      ],
+      "return_code": 0,
+      "duration_seconds": 0.643
+    },
+    {
+      "name": "load_duckdb_raw",
+      "cmd": [
+        "C:\\repos\\livefront\\.venv\\Scripts\\python.exe",
+        "duckdb/load_raw.py",
+        "20260203T222227Z"
+      ],
+      "return_code": 0,
+      "duration_seconds": 0.453
+    },
+    {
+      "name": "dbt_build",
+      "cmd": [
+        "dbt",
+        "build",
+        "--profiles-dir",
+        "C:\\repos\\livefront\\carton_caps_analytics\\dbt_carton_caps",
+        "--project-dir",
+        "C:\\repos\\livefront\\carton_caps_analytics\\dbt_carton_caps"
+      ],
+      "return_code": 0,
+      "duration_seconds": 3.934
+    },
+    {
+      "name": "dbt_test",
+      "cmd": [
+        "dbt",
+        "test",
+        "--profiles-dir",
+        "C:\\repos\\livefront\\carton_caps_analytics\\dbt_carton_caps",
+        "--project-dir",
+        "C:\\repos\\livefront\\carton_caps_analytics\\dbt_carton_caps"
+      ],
+      "return_code": 0,
+      "duration_seconds": 2.782
+    }
+  ],
+  "status": "success",
+  "schema_snapshot": "C:\\repos\\livefront\\carton_caps_analytics\\logs\\schema_20260203T222227Z.json",
+  "copied_artifacts": {
+    "run_results": true,
+    "dbt_manifest": true
+  },
+  "duration_seconds": 8.012,
+  "ended_at_utc": "2026-02-03T22:22:35.909174Z",
+  "log_path": "C:\\repos\\livefront\\carton_caps_analytics\\logs\\pipeline_20260203T222227Z.log"
+}

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_user
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+
+  - name: dim_school
+    columns:
+      - name: school_id
+        tests: [not_null, unique]
+
+  - name: dim_product
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+
+  - name: fct_purchase
+    columns:
+      - name: purchase_id
+        tests: [not_null, unique]
+
+  - name: fct_referral
+    columns:
+      - name: referral_id
+        tests: [not_null, unique]
+
+  - name: fct_rewards
+    columns:
+      - name: reward_id
+        tests: [not_null, unique]

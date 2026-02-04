@@ -1,0 +1,48 @@
+Pipeline run_id=20260203T214553Z
+Using PYTHON=C:\repos\livefront\.venv\Scripts\python.exe
+
+$ C:\repos\livefront\.venv\Scripts\python.exe generator/data_generator.py
+C:\repos\livefront\carton_caps_analytics\generator\data_generator.py:775: DeprecationWarning: The default datetime adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+  conn.execute(insert_sql, values)
+Generating Carton Caps data...
+----------------------------------------
+Generating 50 schools...
+Saved 50 records to ./data\schools.csv
+Generating 1000 users...
+Saved 1000 records to ./data\users.csv
+Generating 100 products...
+Saved 100 records to ./data\products.csv
+Generating 1000 referrals (may add new users)...
+Saved 1000 records to ./data\referrals.csv
+Generating 10000 purchases...
+Saved 10151 records to ./data\purchases.csv
+Generating events (product + referral lifecycle)...
+Saved 27398 records to ./data\events.csv
+
+Saving to SQLite database...
+Saved all data to ./data\carton_caps_generated.db
+----------------------------------------
+Data generation complete!
+
+Artifacts written to ./data/
+ - schools.csv, users.csv, products.csv, referrals.csv, purchases.csv, events.csv
+ - carton_caps_generated.db
+
+$ C:\repos\livefront\.venv\Scripts\python.exe duckdb/load_raw.py 20260203T214553Z
+Using Python interpreter: C:\repos\livefront\.venv\Scripts\python.exe
+Writing DuckDB to: C:\repos\livefront\carton_caps_analytics\duckdb\carton_caps_20260203T214553Z.duckdb
+events     27398
+products   100
+purchases  10151
+referrals  1000
+schools    50
+users      1000
+Wrote pointer: C:\repos\livefront\carton_caps_analytics\duckdb\LATEST_DB.txt -> carton_caps_20260203T214553Z.duckdb
+
+$ dbt build --profiles-dir dbt_carton_caps
+[0m21:45:56  Running with dbt=1.11.2
+[0m21:45:56  Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\repos\livefront\carton_caps_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  

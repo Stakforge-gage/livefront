@@ -1,0 +1,7 @@
+dbt_carton_caps:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: C:/repos/livefront/carton_caps_analytics/duckdb/carton_caps_20260203T224751Z.duckdb
+      threads: 4
